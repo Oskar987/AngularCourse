@@ -1,0 +1,12 @@
+<p>product-list works!</p>
+<br/>
+
+<ul>
+    <li *ngFor="let product of products">
+        <app-product 
+            [name]="product.name"
+            [description]="product.description"
+            [price]="product.price"
+            [id]="product.id"></app-product>
+    </li>
+</ul>
