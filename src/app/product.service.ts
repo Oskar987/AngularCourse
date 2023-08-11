@@ -8,7 +8,7 @@ export class ProductService {
 
   products: Product[] = [];
 
-  constructor() 
+  constructor()
   {
     this.products[0] = new Product(1, "Butter", "cream butter 87%", 3);
     this.products[1] = new Product(2, "Bread", "Bread integral powder", 1);
@@ -19,6 +19,7 @@ export class ProductService {
 
   getProducts(): Product[]
   {
-    return this.products; 
+    return this.products;
   }
 }
+// Надо файлы product.service.ts и cart.service.ts перенести в папку services

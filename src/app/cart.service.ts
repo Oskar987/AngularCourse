@@ -15,6 +15,7 @@ export class CartService {
 
   constructor() { }
 
+  // В JS обычно открывающая фигурная скобка пишется на той же строке, что и вызов функции
   getPurchasedProducts()
   {
     const productsCount: number = this.randomInt(0, 3);
@@ -29,6 +30,6 @@ export class CartService {
 
   private randomInt(min:number, max:number)
   {
-    return Math.floor(Math.random() * (max - min + 1)) + min; 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }
