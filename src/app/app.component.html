@@ -1,2 +1,9 @@
-<h1>App component</h1>
-<app-cart-list></app-cart-list>
+<h1 #appTitle></h1>
+<app-product-list [products]="productService.getProducts()"></app-product-list>
+<br />
+<br />
+<h3>Cart</h3>
+<app-cart-list [cartItems]="cartItems" (QuantityIncrease)="onQuantityIncrease($event)"
+    (QuantityDecrease)="onQuantityDecrease($event)" (DeleteItem)="onDeleteItemFromCart($event)"
+    [totalSum]="cartService.totalSum" [totalQuantity]="cartService.totalQuantity">
+</app-cart-list>

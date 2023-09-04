@@ -1,0 +1,11 @@
+<div appHighlight>
+    <h4>{{ cartItem.product.name}}</h4>
+    <p>{{cartItem.product.description}}</p>
+    <p><strong>{{cartItem.product.price}}</strong></p>
+    <br />
+    <br />
+    <h5>Quantity: {{cartItem.quantity}}</h5>
+    <button (click)="onQuantityIncrease(cartItem)">+</button>
+    <button (click)="onQuantityDecrease(cartItem)">-</button>
+    <button (click)="onDeleteItem(cartItem)">Delete</button>
+</div>

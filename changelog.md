@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2023-08-07
+## [0.1.0] - 2023-08-07
 
 ### Added
 
@@ -19,3 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Developed ProductService
 - Implemented feature "Get list purchased products"
 - Added trackBy directive
+
+
+## [0.2.0] - 2023-09-04
+
+### Added
+
+- cart, product modules
+- cart-item component and handlers
+- directive to highlight cart-item events mouseenter mouseleave
+
+
+
+

@@ -1,0 +1,9 @@
+<p>Products</p>
+<p *ngIf="products?.length === 0">No products</p>
+
+<ul>
+    <li *ngFor="let product of products">
+        <app-product (addProductToCart)="onAddToCart($event)" [product]="product">
+        </app-product>
+    </li>
+</ul>
