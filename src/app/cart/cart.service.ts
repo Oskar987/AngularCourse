@@ -5,41 +5,74 @@ import { CartItem } from './models/cart-item.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
 
   cart: CartItem[] = [];
+  private cartProducts: Array<CartItem> = [];
 
   public get totalSum() {
-    return this.cart.map(item => (item.product.price * item.quantity)).reduce((acc, current) => acc + current, 0);
+    return this.cartProducts.map(item => (item.product.price * item.quantity)).reduce((acc, current) => acc + current, 0);
   }
-
+  
   public get totalQuantity() {
-    return this.cart.map(item => item.quantity || 0).reduce((acc, curr) => acc + curr, 0);
+    return this.cartProducts.map(item => item.quantity || 0).reduce((acc, curr) => acc + curr, 0);
   }
 
   getCartList() {
-    return this.cart;
+    return this.cartProducts;
   }
 
-  removeFromCart(item: Product, deleteItem: boolean = false) {
-    let existingItem = this.cart.find(i => i.product.id == item.id);
+  removeProduct(item: Product, deleteItem: boolean = false) {
+    let existingItem = this.cartProducts.find(i => i.product.id == item.id);
     if (!deleteItem && existingItem && existingItem.quantity > 1) {
-      --existingItem.quantity;
+      this.decreaseQuantity(existingItem);
     }
     else {
-      let index = this.cart.findIndex(i => i.product.id === item.id);
-      if (index > -1) {
-        this.cart.splice(index, 1);
-      }
+      this.cartProducts = this.cartProducts.filter(el=>el.product!== item);
     }
   }
 
-  addToCart(item: Product) {
-    let existingItem = this.cart.find(i => i.product.id == item.id);
+  addProduct(item: Product) {
+    let existingItem = this.cartProducts.find(i => i.product.id == item.id);
     if (existingItem) {
-      ++existingItem.quantity;
+      this.increaseQuantity(existingItem);
       return;
     }
-    this.cart.push(new CartItem(item, 1));
+    this.cartProducts = [...this.cartProducts, (new CartItem(item, 1))];
+  }
+
+  private changeQuantity(index: number, newQuantity: number){
+    if(newQuantity <= 0){
+      this.cartProducts = this.cartProducts.filter((_, i) => i !== index);
+    }
+    else{
+      this.cartProducts = this.cartProducts.map((product, i) => (i === index ? { ...product, quantity: newQuantity } : product));
+    }
+  }
+
+  increaseQuantity(item: CartItem, amount: number = 1){
+    const existingProductIndex = this.cartProducts.findIndex(p => p.product.id === item.product.id);
+
+    if (existingProductIndex !== -1) {
+      this.changeQuantity(existingProductIndex, this.cartProducts[existingProductIndex].quantity + amount);
+    }
+  }
+
+  decreaseQuantity(item: CartItem, amount: number = 1){
+    const existingProductIndex = this.cartProducts.findIndex(p => p.product.id === item.product.id);
+
+    if(existingProductIndex!== -1){
+      this.changeQuantity(existingProductIndex, this.cartProducts[existingProductIndex].quantity - amount);
+
+    }
+  }
+
+  removeAllProducts(){
+    this.cartProducts = [];
+  }
+
+  isEmptyCart(): boolean{
+    return this.cartProducts.length === 0;
   }
 }

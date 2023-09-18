@@ -1,0 +1,36 @@
+<p>first component!</p>
+<p>Properties:</p>
+<ul>
+    <li>name: {{name}}</li>
+    <li>description: {{description}}</li>
+    <li>price: {{price}}</li>
+    <li>category: {{category}}</li>
+    <li>is available: {{isAvailable}}</li>
+</ul>
+
+<h3>Generated string</h3>
+
+<p>{{this.generatedString}}</p>
+<br/>
+<h4>Configuration:</h4>
+<ul>
+    <li><b>Id:</b> {{this.configOptionsService.getConfig()["id"]}}</li>
+    <li><b>Login:</b> {{this.configOptionsService.getConfig()["login"]}}</li>
+    <li><b>Email:</b> {{this.configOptionsService.getConfig()["email"]}}</li>
+</ul>
+<br/>
+<h4>Constant</h4>
+<ul>
+    <li><b>App: </b>{{this.constant.App}}</li>
+    <li><b>Version: </b>{{this.constant.Ver}}</li>
+    <li><b>URL: </b>{{this.constant.API_URL}}</li>
+</ul>
+
+
+<h4>Local storage controls</h4>
+
+<button class="btn btn-link" (click)="onSaveData()">Save Data</button>
+<button class="btn btn-link" (click)="onLoadData()">Load Data</button>
+<button class="btn btn-link" (click)="onClearData()">Clear Data</button>
+
+<div appApplyStyles [fontSize]="'44px'">directive applyStyle</div>

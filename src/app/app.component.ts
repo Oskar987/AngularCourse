@@ -34,14 +34,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   onQuantityIncrease(item: CartItem) {
     console.log(item);
-    this.cartService.addToCart(item.product);
+    this.cartService.addProduct(item.product);
   }
 
   onQuantityDecrease(item: CartItem) {
-    this.cartService.removeFromCart(item.product);
+    this.cartService.removeProduct(item.product);
   }
 
   onDeleteItemFromCart(item: CartItem) {
-    this.cartService.removeFromCart(item.product, true);
+    this.cartService.removeProduct(item.product, true);
   }
 }

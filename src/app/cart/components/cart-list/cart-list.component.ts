@@ -12,6 +12,7 @@ export class CartListComponent {
   @Input() cartItems!: CartItem[];
   @Input() totalSum!: number;
   @Input() totalQuantity!: number;
+  @Input() isEmptyCart!: boolean;
   @Output() QuantityDecrease = new EventEmitter<CartItem>();
   @Output() QuantityIncrease = new EventEmitter<CartItem>();
   @Output() DeleteItem = new EventEmitter<CartItem>();

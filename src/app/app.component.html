@@ -1,9 +1,16 @@
 <h1 #appTitle></h1>
+
+<h1>First component - test</h1>
+<app-first></app-first>
+
 <app-product-list [products]="productService.getProducts()"></app-product-list>
 <br />
 <br />
 <h3>Cart</h3>
-<app-cart-list [cartItems]="cartItems" (QuantityIncrease)="onQuantityIncrease($event)"
+<app-cart-list 
+    [cartItems]="cartItems" 
+    (QuantityIncrease)="onQuantityIncrease($event)"
+    [isEmptyCart]="cartService.isEmptyCart()"
     (QuantityDecrease)="onQuantityDecrease($event)" (DeleteItem)="onDeleteItemFromCart($event)"
     [totalSum]="cartService.totalSum" [totalQuantity]="cartService.totalQuantity">
 </app-cart-list>

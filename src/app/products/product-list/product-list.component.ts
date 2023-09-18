@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/Product';
-import { ProductService } from '../product.service';
 import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
@@ -16,6 +15,6 @@ export class ProductListComponent {
   }
 
   onAddToCart(product: Product) {
-    this.cartService.addToCart(product);
+    this.cartService.addProduct(product);
   }
 }

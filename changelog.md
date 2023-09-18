@@ -30,5 +30,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - directive to highlight cart-item events mouseenter mouseleave
 
 
+## [0.2.0] - 2023-09-04
+
+### Added
+
+- cart, product modules
+- cart-item component and handlers
+- directive to highlight cart-item events mouseenter mouseleave
+
+
+## [0.3.0] - 2023-09-18
+
+### Added
+
+- new methods for CartService
+- config-options.service 
+- constant.service
+- generator.service
+- local-storage.service
+- first.component for service's work demonstration
+- applyStyles directive
+
+
 
 
