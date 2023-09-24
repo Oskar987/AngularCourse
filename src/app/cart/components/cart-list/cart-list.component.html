@@ -1,8 +1,18 @@
 <ng-template *ngIf="isEmptyCart; then empty; else full"></ng-template>
 <ng-template #full>
   <h4>Total Sum: {{ totalSum }} $, Total Quantity: {{ totalQuantity }}</h4>
+  <div >
+    <label for="sort">Sort by:</label>
+    <select id="sort" [(ngModel)]="selectedSortItem">
+      <option *ngFor="let sortItem of sortItems" [value]="sortItem">{{ sortItem.split('.').pop() }}</option>
+    </select>
+    <div>
+      <label for="ascending">Ascending:</label>
+      <input type="checkbox" id="ascending" [(ngModel)]="isAscending">
+    </div>
+  </div>
   <ul>
-    <li *ngFor="let item of cartItems; trackBy: trackByItems">
+    <li *ngFor="let item of cartItems | orderBy: selectedSortItem:isAscending; trackBy: trackByItems">
       <app-cart-item [cartItem]="item" (QuantityIncrease)="onQuantityIncrease($event)"
         (QuantityDecrease)="onQuantityDecrease($event)" (DeleteItem)="onDeleteItem($event)">
       </app-cart-item>
@@ -10,6 +20,7 @@
     </li>
   </ul>
 </ng-template>
+
 <ng-template #empty>
   <h3>Cart is empty</h3>
   <div>

@@ -4,6 +4,7 @@ import { ConfigOptionsService } from 'src/app/core/services/config-options.servi
 import { ConstantService } from '../core/services/constants.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApplyStylesDirective } from '../shared/directives/apply-styles.directive';
+
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',

@@ -1,8 +1,8 @@
 <div>
     <div>
-        <h5>{{ product.name }}</h5>
+        <h5>{{ product.name | uppercase}}</h5>
         <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
+        <p>{{ product.price | currency: 'USD'}}</p>
         <p>{{ product.isAvailable ? "Available" : "Not available" }}</p>
     </div>
     <button [disabled]="!product.isAvailable" (click)='onAddToCart()'>Buy</button>

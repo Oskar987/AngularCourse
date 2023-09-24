@@ -9,7 +9,7 @@ import { CartService } from 'src/app/cart/cart.service';
 })
 export class ProductListComponent {
 
-  @Input() products!: Product[]
+  @Input() products!: Product[] | null
 
   constructor(public cartService: CartService) {
   }

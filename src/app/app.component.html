@@ -3,7 +3,7 @@
 <h1>First component - test</h1>
 <app-first></app-first>
 
-<app-product-list [products]="productService.getProducts()"></app-product-list>
+<app-product-list [products]="productService.getProducts() | async"></app-product-list>
 <br />
 <br />
 <h3>Cart</h3>

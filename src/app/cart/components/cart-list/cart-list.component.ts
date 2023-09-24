@@ -17,6 +17,10 @@ export class CartListComponent {
   @Output() QuantityIncrease = new EventEmitter<CartItem>();
   @Output() DeleteItem = new EventEmitter<CartItem>();
 
+  sortItems = ['product.price', 'quantity', 'product.name'];
+  selectedSortItem = this.sortItems[0];
+  isAscending = true;
+
   onQuantityIncrease(item: CartItem) {
     this.QuantityIncrease.emit(item);
   }
