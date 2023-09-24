@@ -8,8 +8,7 @@ import { CartItem } from './models/cart-item.model';
 
 export class CartService {
 
-  cart: CartItem[] = [];
-  private cartProducts: Array<CartItem> = [];
+  private cartProducts: CartItem[] = [];
 
   public get totalSum() {
     return this.cartProducts.map(item => (item.product.price * item.quantity)).reduce((acc, current) => acc + current, 0);
@@ -39,7 +38,7 @@ export class CartService {
       this.increaseQuantity(existingItem);
       return;
     }
-    this.cartProducts = [...this.cartProducts, (new CartItem(item, 1))];
+    this.cartProducts.push(new CartItem(item, 1));
   }
 
   private changeQuantity(index: number, newQuantity: number){

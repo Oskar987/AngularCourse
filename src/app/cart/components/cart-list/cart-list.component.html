@@ -1,4 +1,4 @@
-<ng-template *ngIf="isEmptyCart; then full; else empty"></ng-template>
+<ng-template *ngIf="isEmptyCart; then empty; else full"></ng-template>
 <ng-template #full>
   <h4>Total Sum: {{ totalSum }} $, Total Quantity: {{ totalQuantity }}</h4>
   <ul>
