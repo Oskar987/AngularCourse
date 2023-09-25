@@ -9,9 +9,9 @@ import { CartService } from 'src/app/cart/cart.service';
 })
 export class ProductListComponent {
 
-  @Input() products!: Product[] | null
+  @Input() products!: Product[] | null;
 
-  constructor(public cartService: CartService) {
+  constructor(private cartService: CartService) {
   }
 
   onAddToCart(product: Product) {
