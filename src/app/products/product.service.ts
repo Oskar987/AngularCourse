@@ -7,15 +7,13 @@ import { Observable, of } from 'rxjs';
 })
 export class ProductService {
 
-  products: Product[] = [];
-
-  constructor() {
-    this.products[0] = new Product(1, "Butter", "cream butter 87%", 3, true);
-    this.products[1] = new Product(2, "Bread", "Bread integral powder", 1, true);
-    this.products[2] = new Product(3, "Cheese", "Cream cheese 10%", 5, false);
-    this.products[3] = new Product(4, "Milk", "Milk 3%", 3, false);
-    this.products[4] = new Product(5, "Yogurt", "Greek yogurt", 0.5, true);
-  }
+  products: Product[] = [
+    new Product(1, "Butter", "cream butter 87%", 3, true),
+    new Product(2, "Bread", "Bread integral powder", 1, true),
+    new Product(3, "Cheese", "Cream cheese 10%", 5, false),
+    new Product(4, "Milk", "Milk 3%", 3, false),
+    new Product(5, "Yogurt", "Greek yogurt", 0.5, true)
+  ];
 
   getProducts(): Observable<Product[]> {
     return of(this.products);

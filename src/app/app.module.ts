@@ -14,6 +14,12 @@ import { APP_INITIALIZER } from '@angular/core';
 import { LocalStorageService } from './core/services/local-storage.service';
 import { ApplyStylesDirective } from './shared/directives/apply-styles.directive';
 
+const appConfig: ConstantService = {
+  App: 'TaskManager',
+  Ver: '1.0',
+  API_URL: 'http://example.com/api'
+}
+
 
 @NgModule({
   declarations: [
@@ -28,24 +34,20 @@ import { ApplyStylesDirective } from './shared/directives/apply-styles.directive
     OrdersModule,
     SharedModule
   ],
-  providers: [{
-    provide: ConstantService,
-    useValue: {
-      App: 'TaskManager',
-      Ver: '1.0',
-      API_URL: 'http://example.com/api'
-    }
-  },
-  GeneratorService,
+  providers: [
+    {
+      provide: ConstantService, useValue: appConfig
+    },
+    GeneratorService,
     {
       provide: GENERATED_STRING,
       useFactory: (generatorService: GeneratorService) => GeneratorFactory(10, generatorService),
       deps: [GeneratorService],
     },
-  {
-    provide: LocalStorageService,
-    useValue: new LocalStorageService(),
-  }
+    {
+      provide: LocalStorageService,
+      useValue: new LocalStorageService(),
+    }
   ],
   bootstrap: [AppComponent]
 })
